@@ -83,3 +83,68 @@ In Android, you do not use `System.out`. Instead, you use the [`Log` class](http
 
 For more on documentation, check out the [Tutorials Point article on Documentation Comments in Java](https://www.tutorialspoint.com/java/java_documentation.htm).
 
+# Variables
+
+## Primitive Data Types
+
+```java
+int i;  // declare variable
+i = 0;  // assign value to variable
+
+// the above is equivalent to:
+int i = 0;
+```
+
+You *must* indicate the data type when you create a variable for the first time.
+
+The data type of the variable can **never** be changed. 
+
+```java
+int i = 0;
+i = "This is not an int";  // will return an error
+```
+
+Here are the primitive data types:
+
+```java
+// for integers (can hold negative values)
+byte myByte = 1;
+short myShort = 2;
+int myInt = 3; 
+long myLong = 100000L;  // L is used to denote that the variable is of type Long
+
+// for floating-point numbers
+float myFloat = 123.4f;  // f or F needed for floats
+double myDouble = 567.8;  // has double precision of float
+
+// booleans
+boolean myBoolean = true;
+boolean yourBoolean = false;
+// case sensitive, all lowercase unlike Python's True and False
+
+// characters
+char myChar = 'A';
+// Only one character
+// Must enclose in *single* quotes (double quotes is for String)
+```
+
+By convention, variable names are typically in lowerCamelCase.
+
+[The range for each of the primitive data types](https://programming.guide/java/primitive-ranges.html)
+
+You can use `final` for constant variables. Then, they can't be reassigned.
+
+```java
+final double PI = 3.1416;
+
+// you can initialise them later
+final int MY_CONSTANT;
+MY_CONSTANT = 123;
+
+PI = 2;  // will return an error
+```
+
+## Operations
+
+Like Python, Java has `+`, `-`, `*`, `/`, and `%`.  Unlike Python, Java does **not** have `//` or `**`.
+
