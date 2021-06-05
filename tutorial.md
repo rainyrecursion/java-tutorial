@@ -365,6 +365,23 @@ After the statements in the block are executed once, the `<end-condition>` is ch
 
 If it is `false`, then `<step> ` is executed before the statements in the block are run again.
 
+# Object Oriented Programming
+
+## Introduction
+
+Let's make a Java class for animals!
+
+```java
+public class Animal {
+    private int id;
+    private int age;
+    
+    // we'll add methods soon!
+}
+```
+
+
+
 # Arrays
 
 Unlike Python's lists, Java Arrays have two important restrictions:
