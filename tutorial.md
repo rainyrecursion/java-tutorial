@@ -198,8 +198,10 @@ while (i > 0) {
 }
 ```
 Output:
-`2`
-`1`
+```java
+2
+1
+```
 
 A slightly different version is a do-while loop. For example:
 ```java
@@ -213,8 +215,10 @@ do {
 } while (i > 0);
 ```
 Output:
-`2`
-`1`
+```java
+2
+1
+```
 
 Although both code snippets currently produce the same output, if we replace `int i = 2;` with `int i = 0;`, running code snippet A and B will give different outputs.
 For code snippet A, i is not larger than 0, so the loop will not run at all and the output will be nothing.
