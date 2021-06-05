@@ -365,3 +365,10 @@ After the statements in the block are executed once, the `<end-condition>` is ch
 
 If it is `false`, then `<step> ` is executed before the statements in the block are run again.
 
+# Arrays
+
+Unlike Python's lists, Java Arrays have two important restrictions:
+
+1. All elements in the Array must be of the *same* data type.
+2. The size (i.e. no. of elements) in the Array is *fixed* and cannot be changed.
+
