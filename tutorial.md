@@ -149,3 +149,74 @@ PI = 2;  // will return an error
 Like Python, Java has `+`, `-`, `*`, `/`, and `%`.  Unlike Python, Java does **not** have `//` or `**`.
 
 If you need to do exponentiation, either use a `for` loop (slower) or use the method in the `FastExpo.java` file included in the repo.
+
+## Conditionals
+
+Like Python, Java has `if` statements. 
+
+```java
+int n = 5;
+if (n == 7) {
+    System.out.println("n = 7");
+} else if (n == 5) { // else if is used instead of elif in Java
+    System.out.println("n = 5");
+} else {
+    System.out.println("n is not 5 or 7");
+}
+```
+Output:
+`n = 5`
+
+Alternatively, you can use switch expressions.
+
+```java
+int n = 5;
+switch (n) {
+    case 7:
+        System.out.println("n = 7");
+        break;
+        // if break is not added at the end, the computer will read the next part and print out
+        // n = 5 even if n is not equal to 5
+    case 5:
+        System.out.println("n = 5");
+        break;
+    default:
+        System.out.println("n is not 5 or 7");
+        break;
+}
+```
+Output:
+`n = 5`
+
+Java, like Python, also has while loops. For example:
+```java
+// CODE SNIPPET A
+int i = 2;
+while (i > 0) {
+    System.out.println(i);
+    i--; // this is a way of writing i -= 1, both versions work in Java
+}
+```
+Output:
+`2`
+`1`
+
+A slightly different version is a do-while loop. For example:
+```java
+// CODE SNIPPET B
+int i = 2;
+do {
+    // this will be executed first before (i > 0) is considered, which means that even if (i <= 0),
+    // anything in this block will be run at least once.
+    System.out.println(i);
+    i--;
+} while (i > 0);
+```
+Output:
+`2`
+`1`
+
+Although both code snippets currently produce the same output, if we replace `int i = 2;` with `int i = 0;`, running code snippet A and B will give different outputs.
+For code snippet A, i is not larger than 0, so the loop will not run at all and the output will be nothing.
+For code snippet B, the loop will run once before the computer will see the while statement. Since i is not larger than 0, the loop will not repeat. The output will be:
+`0`
