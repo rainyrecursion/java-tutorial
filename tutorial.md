@@ -229,9 +229,11 @@ Like Python, Java has `if` statements.
 int n = 5;
 if (n == 7) {
     System.out.println("n = 7");
-} else if (n == 5) { // else if is used instead of elif in Java
+} 
+else if (n == 5) { // else if is used instead of elif in Java
     System.out.println("n = 5");
-} else {
+} 
+else {
     System.out.println("n is not 5 or 7");
 }
 ```
