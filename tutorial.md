@@ -150,7 +150,9 @@ Like Python, Java has `+`, `-`, `*`, `/`, and `%`.  Unlike Python, Java does **n
 
 If you need to do exponentiation, either use a `for` loop (slower) or use the method in the `FastExpo.java` file included in the repo.
 
-## Conditionals
+# Conditionals
+
+## `if` Statements
 
 Like Python, Java has `if` statements. 
 
@@ -168,6 +170,8 @@ Output:
 ```java
 n = 5
 ```
+
+## `switch` `case` Statements
 
 Alternatively, you can use switch expressions.
 
@@ -192,7 +196,12 @@ Output:
 n = 5
 ```
 
+# Loops
+
+## `while` Loops
+
 Java, like Python, also has while loops. For example:
+
 ```java
 // CODE SNIPPET A
 int i = 2;
@@ -207,7 +216,10 @@ Output:
 1
 ```
 
+## `do-while` Loops
+
 A slightly different version is a do-while loop. For example:
+
 ```java
 // CODE SNIPPET B
 int i = 2;
@@ -232,3 +244,4 @@ For code snippet B, the loop will run once before the computer will see the whil
 ```java
 0
 ```
+
