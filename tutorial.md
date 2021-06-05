@@ -245,3 +245,35 @@ For code snippet B, the loop will run once before the computer will see the whil
 0
 ```
 
+## `for` Loops
+
+`for` Loops in Java are quite different from Python. 
+
+Here's an example `for` loop in Python:
+
+```python
+for i in range(2, 11, 3):
+    print(i)
+```
+
+The equivalent in Java would be:
+
+```java
+for (int i = 2; i < 11; i +=3) {
+	System.out.println(i);
+}
+```
+
+The format of a `for` loop in Java is:
+
+```python
+for (<initial>; <end-condition>; <step>) {
+	// statements 
+}
+```
+
+The `<initial>` statement is run once at the very start before any statements in the block are executed.
+
+After the statements in the block are executed once, the `<end-condition>` is checked. If it is `true`, then we exit the loop. 
+
+If it is `false`, then `<step> ` is executed before the statements in the block are run again.
