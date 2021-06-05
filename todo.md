@@ -1,9 +1,9 @@
 # To Do
 
-* `for` loop 
 * Methods
 * Array 
 * ArrayList
+* `for`-each loop
 * String
 * Random
 * Basic OOP:

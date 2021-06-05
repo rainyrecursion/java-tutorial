@@ -130,6 +130,8 @@ char myChar = 'A';
 
 By convention, variable names are typically in lowerCamelCase.
 
+Note that `String` and arrays/lists are **not** primitive data types.
+
 [The range for each of the primitive data types](https://programming.guide/java/primitive-ranges.html)
 
 You can use `final` for constant variables. Then, they can't be reassigned.
@@ -146,9 +148,76 @@ PI = 2;  // will return an error
 
 ## Operations
 
+## Basic Operations
+
 Like Python, Java has `+`, `-`, `*`, `/`, and `%`.  Unlike Python, Java does **not** have `//` or `**`.
 
 If you need to do exponentiation, either use a `for` loop (slower) or use the method in the `FastExpo.java` file included in the repo.
+
+Like Python, you can use `+=`, `-=`, etc. (e.g. `var1 *= var2 + var3;` is equivalent to `var1 = var1 * (var2 var3);`).
+
+Note that any operation between two `int` will result in and `int`. For example, `5 / 2` return `2` (an integer) and *not* `2.5`. 
+
+To get a floating-point result, you must cast one number to a `float` or `double`. For example:
+
+```java
+int i = 5;
+int j = 2;
+double k = (double) 5 / 2; 
+```
+
+For more on casting, see below.
+
+## Increment and Decrement
+
+Java has some shortcuts if you want to *add* by one (***in*crement**) or *subtract* by one (***de*crement**). 
+
+The increment operator is `++`. The decrement operator is `--`.
+
+The operator can be put before (prefix) or after (postfix) the variable. The differences are illustrated below.
+
+```java
+int i = 0;
+i++;  // i == 1
+++i;  // i == 2
+int j = -1;
+j--;  // i == -2
+--j;  // i == -3
+
+int a = i++;  // assigns i to a, THEN increment i
+// i = 3
+// a = 2 (value of i BEFORE incrementing)
+
+int b = ++i;  // increment i, THEN assign new value of i to b
+// i = 4
+// b = 4 (value of i AFTER incrementing)
+
+// work similarly for decrement
+
+int c = j--;  // assigns j to c, THEN decrement j
+// j = -4
+// c = -3 (value of j BEFORE decrementing)
+
+int d = --j;  // decrement j, THEN assign j to d
+// j = -5
+// d = -5 (value of j AFTER decrementing)
+```
+
+## Boolean Operators
+
+Unlike Python, you can't type out the words `and`, `or`, and `not`.
+
+The equivalents are shown below:
+
+| Python | Java |
+| ------ | ---- |
+| `and`  | `&&` |
+| `or`   | `||` |
+| `not`  | `!`  |
+
+## Casting
+
+WIP
 
 # Conditionals
 
@@ -277,3 +346,4 @@ The `<initial>` statement is run once at the very start before any statements in
 After the statements in the block are executed once, the `<end-condition>` is checked. If it is `true`, then we exit the loop. 
 
 If it is `false`, then `<step> ` is executed before the statements in the block are run again.
+
