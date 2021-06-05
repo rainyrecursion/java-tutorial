@@ -217,7 +217,23 @@ The equivalents are shown below:
 
 ## Casting
 
-WIP
+There are two types of casting in Java:
+
+**Widening casting** which happens automatically (smaller type to larger type).
+
+**Narrowing casting** which must be done manually (larger type to smaller type).
+
+Primitive data types in order from smallest to largest: `byte`, `short`, `char`, `int`, `long`, `float`, `double`.
+
+```java
+int myInt = 1234;
+long myLong = myInt;  // casting is automatic because long is a larger data type than int
+
+double myDouble = 1.2;
+float myFloat = (float) myDouble;  // casting must be manual because float is a smaller data type than int
+float yourFloat = myDouble;  // error 
+float ourFloat = 1.2;  // error, because without an 'f' or 'F' at the end, Java assumes 1.2 is a double
+```
 
 # Conditionals
 
