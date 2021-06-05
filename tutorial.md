@@ -165,7 +165,9 @@ if (n == 7) {
 }
 ```
 Output:
-`n = 5`
+```java
+n = 5
+```
 
 Alternatively, you can use switch expressions.
 
@@ -186,7 +188,9 @@ switch (n) {
 }
 ```
 Output:
-`n = 5`
+```java
+n = 5
+```
 
 Java, like Python, also has while loops. For example:
 ```java
@@ -223,4 +227,6 @@ Output:
 Although both code snippets currently produce the same output, if we replace `int i = 2;` with `int i = 0;`, running code snippet A and B will give different outputs.
 For code snippet A, i is not larger than 0, so the loop will not run at all and the output will be nothing.
 For code snippet B, the loop will run once before the computer will see the while statement. Since i is not larger than 0, the loop will not repeat. The output will be:
-`0`
+```java
+0
+```
