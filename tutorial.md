@@ -365,6 +365,60 @@ After the statements in the block are executed once, the `<end-condition>` is ch
 
 If it is `false`, then `<step> ` is executed before the statements in the block are run again.
 
+# Methods
+
+A Java method is basically a Python function. One key difference is that you *must* state the return data type of the function.
+
+For now, all methods will be `static`. We will be covering the difference between static and non-static methods later.
+
+Here's an example method:
+
+```java
+public static int square(int x) {
+    return x * x;
+}
+```
+
+Here, we indicated the return data type as `int`. We also included the data type of the parameter (input). For Java, you must indicate these.
+
+If there is no value returned, put `void` (e.g. `main` method).
+
+Now, let's look at another example method:
+
+```java
+public static int foo(int a, int b) {
+    if (a == 0) {
+        return b;
+    }
+    else if (a > 0) {
+        return a + b;
+    }
+    else if (a < 0) {
+        return a - b;
+    }
+}
+```
+
+Ohno, this returns an error! 
+
+Now, we all know this method will return an integer, but Java doesn't. What if all `if`/`else if` conditions fail? Then nothing will be returned!
+
+Of course, in the case above, we all know that at least one of the conditions `a==0`, `a > 0`, or `a < 0` will be satisfied. But Java isn't smart enough to be able to figure that out. 
+
+You can fix this by changing the last `else if` to an `else`. Alternatively, since Java doesn't run any more code after the `return` statement, you can just do this:
+
+```java
+public static int foo(int a, int b) {
+    if (a == 0) {
+        return b;
+    }
+    else if (a > 0) {  // this can also just be 'if'
+        return a + b;
+    }
+    return a - b;
+}
+```
+
 # Object Oriented Programming
 
 ## Introduction
