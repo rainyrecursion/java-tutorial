@@ -526,9 +526,11 @@ Here, the object variables are `name` and `age`. Typically, object variables are
 
 Also, the object has a `printName`  method, which outputs the name of the animal. It doesn't return anything, so we indicate the return type as `void`.
 
-Now, how do we make an Animal object? In Python, we have the `__init__()` method. In Java, we have Constructors, where the method name of the Constructor is the *same as the name of the class*. 
+## Constructors
 
-Now, here's the Animal class with the constructor.
+Now, how do we make an Animal object? In Python, we have the `__init__()` method. In Java, we have **Constructors**, where the method name of the Constructor is the *same as the name of the class*. 
+
+Now, here's the Animal class with some constructors.
 
 ```java
 public class Animal {
@@ -539,16 +541,29 @@ public class Animal {
         System.out.println("Name: " + name);
     }
     
+    public Animal() {
+        name = "Placeholder";
+        age = 1;
+    }
+    
     public Animal(String myName, int myAge) {
         super.name = name;
         super.age = age;
 	}
+    
+    public Animal(Animal myAnimal) {
+        // this is called a copy constructor!
+        name = myAnimal.name;
+        age = myAnimal.age;
+    }
     
     // we'll add even more methods soon!
 }
 ```
 
 Notice that the constructor does **not** have a return type.
+
+Also, you can overload constructors! See above for more information about overloading!
 
 Typically, constructors are `public`. 
 
@@ -564,7 +579,38 @@ public Animal() {
 }
 ```
 
+## Getters and Setters
 
+Getters and setters do pretty much what their names suggest.
+
+Getters return the value of an object variable. Setters well... set the value of an object variable.
+
+Here's an example of Getters and Setters for the Animal class. 
+
+```java
+public class Animal {
+    private String name;
+    private int age;
+    
+    // removed the earlier methods for sake of brevity
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+```
 
 # Arrays
 
