@@ -1,8 +1,6 @@
 # To Do
 
-* Array 
 * ArrayList
-* `for`-each loop
 * Random
 * Exception Handling
 * Basic OOP:
