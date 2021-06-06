@@ -510,7 +510,15 @@ Here, the `super` keyword helps us tell Java that we want to use the class's var
 
 Notice that unlike Python, there is no `self` as the first parameter of the function.
 
-If you do not define any function
+If you do not define any constructor, then Java automatically makes a blank constructor, with no parameters and nothing in the `{}` bock. For example, if you didn't define any constructor for the Animal class above, Java automatically creates:
+
+```java
+public Animal() {
+	// there's nothing here
+}
+```
+
+
 
 # Arrays
 
