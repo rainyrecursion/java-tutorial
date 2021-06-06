@@ -546,7 +546,7 @@ public class Animal {
         age = 1;
     }
     
-    public Animal(String myName, int myAge) {
+    public Animal(String name, int myAge) {
         super.name = name;
         super.age = age;
 	}
@@ -636,8 +636,7 @@ public class PetShop {
         Animal defaultAnimal = new Animal();
         Animal myGoldfish = new Animal("Timmy the Goldfish", 3);
         Animal yourGoldfish = new Animal(myGoldfish);
-        Animal alsoMyGoldfish = myGoldfish;  // I've added this too!
-        
+         
         System.out.println(defaultAnimal.name);  // has error, because name is private
         System.out.println(defaultAnimal.getName());  // outputs "Placeholder"
         defaultAnimal.setName("Timmy the Goldfish");
