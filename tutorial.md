@@ -263,23 +263,15 @@ String s2 = i + ""; // to convert it back, use the + operator
 
 In addition, since strings are objects, the `==` operator cannot be used to compare them. Instead, the method `.equals()` must be used.
 ```java
-String s = "Hello!";
-String s2 = "Hello!";
-if (s == s2) {
-	System.out.println("s and s2 are the same object.");
-}
-else if (s.equals(s2)) {
-	System.out.println("s and s2 have the same contents.");
-}
-else {
-	System.out.println("s and s2 are different.");
-}
+String dnaSeq = "TAGCGCTAG";
+String dnaStart = dnaSeq.substring(0, 3);  // "TAG"
+String dnaEnd   = dnaSeq.substring(6);     // "TAG"
+System.out.println(dnaStart == dnaEnd);         // false
+System.out.println(dnaStart.equals(dnaEnd));    // true
 ```
-Output:
-```java
-s and s2 have the same contents.
-```
-There is a possibility that the output will instead be `s and s2 are the same object` but this is unreliable. To compare whether s and s2 have the same characters, using the `.equals()` method is better and more reliable.
+For all String methods, you can refer to [the String reference by W3Schools](https://www.w3schools.com/java/java_ref_string.asp).
+
+More on `.equals()` will be covered later under OOP.
 
 # Conditionals
 
