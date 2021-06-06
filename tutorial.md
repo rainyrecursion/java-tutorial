@@ -579,6 +579,22 @@ public Animal() {
 }
 ```
 
+Now, let's try using our new Animal class in a new class!
+
+```java
+public class PetShop {
+    public static void main(String[] args) {
+        Animal defaultAnimal = new Animal();
+        Animal myGoldfish = new Animal("Timmy the Goldfish", 3);
+        Animal yourGoldfish = new Animal(myGoldfish);
+    }   
+}
+```
+
+Notice that we must use the `new` keyword to create a new object, unlike Python. 
+
+So, we've made a bunch of animals. Cool! But... all the attributes of the animals were set to `private` earlier, so we can't do much about them :(. Well, that's why we have getters and setters!
+
 ## Getters and Setters
 
 Getters and setters do pretty much what their names suggest.
@@ -611,6 +627,26 @@ public class Animal {
     }
 }
 ```
+
+Now, let's see how we can use them in `PetShop`!
+
+```java
+public class PetShop {
+    public static void main(String[] args) {
+        Animal defaultAnimal = new Animal();
+        Animal myGoldfish = new Animal("Timmy the Goldfish", 3);
+        Animal yourGoldfish = new Animal(myGoldfish);
+        Animal alsoMyGoldfish = myGoldfish;  // I've added this too!
+        
+        System.out.println(defaultAnimal.name);  // has error, because name is private
+        System.out.println(defaultAnimal.getName());  // outputs "Placeholder"
+        defaultAnimal.setName("Timmy the Goldfish");
+        System.out.println(defaultAnimal.getName());  // outputs "Timmy the Goldfish"
+    }   
+}
+```
+
+
 
 # Arrays
 
