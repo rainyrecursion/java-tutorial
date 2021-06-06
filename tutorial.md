@@ -706,3 +706,32 @@ System.out.println(smallEvenNumbers.length);  // 4
 // note that there's no '()' after 'length'!
 ```
 
+Like Python, you can access elements in the array using `[index]` (e.g. `int myVar = smallEvenNumbers[2];`).
+
+However, unlike Python, you cannot access subarrays using something like `arr[1:4]`. Use a `for` loop instead.
+
+Speaking of `for` loops, you probably remember that in Python, you can do something like:
+
+```python
+my_list = [3, 1, 4, 1, 5, 9]
+for i in my_list:
+    print(i)
+```
+
+Java has an equivalent, called a `for`-each loop! The equivalent of the Python code above in Java would be:
+
+```java
+int[] myList = {3, 1, 4, 1, 5, 9};
+for (int i: myList) {
+    System.out.println(i);
+}
+```
+
+You can also create multi-dimensional arrays (i.e. an array of arrays). For example:
+
+```java
+int[][] grid = { {1, 2, 3}, {-1, -2, -3, -4} };
+```
+
+[There is a quick summary of built-in Java Array method at the bottom of this page.](https://www.tutorialspoint.com/java/java_arrays.htm)
+
