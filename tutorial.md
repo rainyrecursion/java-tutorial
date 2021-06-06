@@ -683,6 +683,38 @@ Most IDEs can help to generate constructors, getters, and setters for you. [Here
 
 One alternative is to use Kotlin classes. A quick (about) 40-second introduction of Kotlin classes can be seen from [this video from Google I/O 2018](https://youtu.be/6P20npkvcb8) (timestamps: 2:20 to 3:00). [Here is the full documentation for Kotlin classes](https://kotlinlang.org/docs/classes.html).
 
+# Importing stuff
+
+Like Python, you can import stuff.
+
+Unlike Python, all import statements in Java must be at the *start* of your code, *before* the `public class SomeClassName {` line.
+
+Stuff like Strings is in `java.lang` (to be specific, `java.lang.String`). Anything in `java.lang` is automatically imported.
+
+Let's say you want to do some random number stuff. You'll need `java.util.Random`.  (We'll cover more on the Random class later.) You can import this in two ways:
+
+```java
+import java.util.Random;  // only imports the Random stuff
+import java.util.*;  	  // imports everything in java.util.*
+
+// unfortunately, you cannot do 'import *;' lol
+
+public class SomeClass {
+    // write cool stuff here!
+    // you can't import stuff here though
+}
+```
+
+Instead of importing, you can directly enter the whole thingy in your code. For example, if you want to make a Random object without any import statements, you can do it in this way:
+
+```java
+java.util.Random randomObject = new java.util.Random();
+```
+
+This might seem really clunky, but it can be helpful if [you have multiple classes with the same name](https://stackoverflow.com/questions/2079823/importing-two-classes-with-same-name-how-to-handle).
+
+To see all the stuff you can import, check out the [official Java 8 API](https://docs.oracle.com/javase/8/docs/api/). 
+
 # Arrays
 
 Unlike Python's lists, Java Arrays have two important restrictions:
