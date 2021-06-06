@@ -423,18 +423,56 @@ public static int foo(int a, int b) {
 
 ## Introduction
 
-Let's make a Java class for animals!
+Let's make a Java class for Animals!
 
 ```java
 public class Animal {
-    private int id;
+    private String name;
     private int age;
     
-    // we'll add methods soon!
+    public void printName() {
+        System.out.println("Name: " + name);
+    }
+    
+    // we'll add more methods soon!
 }
 ```
 
+Here, the object variables are `name` and `age`. Typically, object variables are `private`. We will discuss how other classes can use the object's variables later.
 
+Also, the object has a `printName`  method, which outputs the name of the animal. It doesn't return anything, so we indicate the return type as `void`.
+
+Now, how do we make an Animal object? In Python, we have the `__init__()` method. In Java, we have Constructors, where the method name of the Constructor is the *same as the name of the class*. 
+
+Now, here's the Animal class with the constructor.
+
+```java
+public class Animal {
+    private String name;
+    private int age;
+    
+    public void printName() {
+        System.out.println("Name: " + name);
+    }
+    
+    public Animal(String myName, int myAge) {
+        super.name = name;
+        super.age = age;
+	}
+    
+    // we'll add even more methods soon!
+}
+```
+
+Notice that the constructor does **not** have a return type.
+
+Typically, constructors are `public`. 
+
+Here, the `super` keyword helps us tell Java that we want to use the class's variables, and not the local variable.
+
+Notice that unlike Python, there is no `self` as the first parameter of the function.
+
+If you do not define any function
 
 # Arrays
 
