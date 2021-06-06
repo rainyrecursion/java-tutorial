@@ -1,6 +1,5 @@
 # To Do
 
-* Methods
 * Array 
 * ArrayList
 * `for`-each loop
