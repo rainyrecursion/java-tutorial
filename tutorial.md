@@ -279,6 +279,7 @@ Output:
 ```java
 s and s2 have the same contents.
 ```
+There is a possibility that the output will instead be `s and s2 are the same object` but this is unreliable. To compare whether s and s2 have the same characters, using the `.equals()` method is better and more reliable.
 
 # Conditionals
 
