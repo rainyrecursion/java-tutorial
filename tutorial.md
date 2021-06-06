@@ -235,6 +235,52 @@ float yourFloat = myDouble;  // error
 float ourFloat = 1.2;  // error, because without an 'f' or 'F' at the end, Java assumes 1.2 is a double
 ```
 
+## Strings
+In Java, strings are not primitive data types (like int is) and are instead objects. Some common methods used on strings are:
+```java
+String s = "Hello World!"; // note that String is capitalised unlike int because strings are objects
+System.out.println(s.length()); // s.length() returns the number of characters in the string
+System.out.println(s.charAt(0)); // s.charAt(i) returns the character in the string at position i
+System.out.println(s.contains("Hello")); // s.contains(s2) returns true or false depending if s2 can be found in s
+System.out.println(s.substring(6, 11)); // returns the substring that begins at 6 and ends at 10 (11 is not included)
+System.out.println(s.index("o")); // returns the index of the first occurrence of "o" in s
+```
+Output:
+```java
+12
+H
+true
+World
+4
+```
+
+To convert strings to primitive data types such as integer, these methods can be used:
+```java
+String s = "2";
+int i = Integer.parseInt(s); // similar methods can be used to convert to other numerical types i.e Double.parseDouble(s);
+String s2 = i + ""; // to convert it back, use the + operator
+```
+
+In addition, since strings are objects, the `==` operator cannot be used to compare them. Instead, the method `.equals()` must be used.
+```java
+String s = "Hello!";
+String s2 = "Hello!";
+if (s == s2) {
+	System.out.println("s and s2 are the same object.");
+}
+else if (s.equals(s2)) {
+	System.out.println("s and s2 have the same contents.");
+}
+else {
+	System.out.println("s and s2 are different.");
+}
+```
+Output:
+```java
+s and s2 have the same contents.
+```
+There is a possibility that the output will instead be `s and s2 are the same object` but this is unreliable. To compare whether s and s2 have the same characters, using the `.equals()` method is better and more reliable.
+
 # Conditionals
 
 ## `if` Statements
