@@ -457,6 +457,52 @@ public static int foo(int a, int b) {
 }
 ```
 
+## Overloading Methods
+
+Sometimes, we may have multiple methods with the same name but different number and/or data types of parameters. For example,
+
+```java
+public static boolean isPass(int score) {
+    return score >= 50;
+}
+
+public static boolean isPass(int score, int passingMark) {
+    return score >= passingMark.
+}
+
+public static boolean isPass(double percentCorrect) {
+    return percentCorrect >= 0.5;
+}
+
+public static void isPass() {  // notice that you can change the return type
+    System.out.println("Believe in yourself!");
+    System.out.println("If you work hard enough, you can pass the test!");
+}
+```
+
+This is called **overloading**. It can be done by changing one or both of the following:
+
+* data type of parameters
+* number of parameters
+
+Java will then use it's magic powers to decide which method it should run when `isPass()` is called.
+
+If there is no method that exactly follows the parameters of any of the methods available (for example, `isPass(12L)`, where the parameter is of type `long`), then Java does Type Promotion. You can read about [type promotion for method overloading here](https://www.javatpoint.com/method-overloading-in-java).
+
+Note that you **cannot** overload by changing the return type only. For example, the below is **not** allowed:
+
+```java
+public static int half(int a) {
+    return a / 2;
+}
+
+public static double half(int a) {  // same parameter, but different return type
+    return a / 2.0;
+}
+```
+
+
+
 # Object Oriented Programming
 
 ## Introduction
