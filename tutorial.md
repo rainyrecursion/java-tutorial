@@ -547,8 +547,8 @@ public class Animal {
     }
     
     public Animal(String name, int myAge) {
-        super.name = name;
-        super.age = age;
+        this.name = name;
+        this.age = age;
 	}
     
     public Animal(Animal myAnimal) {
@@ -567,7 +567,7 @@ Also, you can overload constructors! See above for more information about overlo
 
 Typically, constructors are `public`. 
 
-Here, the `super` keyword helps us tell Java that we want to use the class's variables, and not the local variable.
+Here, the `this` keyword helps us tell Java that we want to use the class's variables, and not the local variable.
 
 Notice that unlike Python, there is no `self` as the first parameter of the function.
 
@@ -645,7 +645,35 @@ public class PetShop {
 }
 ```
 
+Now, let's try something interesting:
 
+```java
+// in main method
+Animal dogA = new Animal("Doggy", 5);
+Animal dogB = new Animal(dogA);
+Animal dogC = dogA;
+
+System.out.println(dogA.getAge());  // 5
+System.out.println(dogB.getAge());  // 5
+System.out.println(dogC.getAge());  // 5
+
+dogA.setAge(100);
+System.out.println(dogA.getAge());  // 100
+System.out.println(dogB.getAge());  // 5
+System.out.println(dogC.getAge());  // 100
+```
+
+Why is there a difference?
+
+Each of the `dog` variables don't store something like `("Doggy", 5)`. Instead, they store the address of an `Animal` Object. 
+
+The line `Animal dogA = new Animal("Doggy", 5);` creates a Animal (let's call this the "First Dog"), sets the Animal's name and age based on the code in the constructor, and now `dogA` stores a *reference* to the First Dog.
+
+The line `Animal dogB = new Animal(dogA);` creates a *new* Animal (let's call this the "Second Dog"), sets the new Animal's name and age to be the same as the one for `dogA`, and now `dogB` stores a *reference* to the Second Dog.
+
+The line `Animal dogC = dogA;` does **not** create any new Object. Instead, both `dogC` and `dogA` now *refence* the **same** Animal Object, the First Dog.
+
+Thus, when we run `dogA.setAge(100);`, we are actually modifying the First Dog, which both `dogA` and `dogC` reference :O The Second Dog remains unaffected, because it is a different Object.
 
 # Arrays
 
