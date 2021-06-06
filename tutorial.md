@@ -675,10 +675,34 @@ The line `Animal dogC = dogA;` does **not** create any new Object. Instead, both
 
 Thus, when we run `dogA.setAge(100);`, we are actually modifying the First Dog, which both `dogA` and `dogC` reference :O The Second Dog remains unaffected, because it is a different Object.
 
+If you are wondering why we use private class variables and public getters & setters, [check out StackOverflow on this topic](https://stackoverflow.com/questions/1568091/why-use-getters-and-setters-accessors).
+
+## Tips and Tricks
+
+Most IDEs can help to generate constructors, getters, and setters for you. [Here are the instructions on how to do this on IntelliJ IDEA](https://www.jetbrains.com/help/idea/generating-code.html). It's similar in Android Studio.
+
+One alternative is to use Kotlin classes. A quick (about) 40-second introduction of Kotlin classes can be seen from [this video from Google I/O 2018](https://youtu.be/6P20npkvcb8) (timestamps: 2:20 to 3:00). [Here is the full documentation for Kotlin classes](https://kotlinlang.org/docs/classes.html).
+
 # Arrays
 
 Unlike Python's lists, Java Arrays have two important restrictions:
 
 1. All elements in the Array must be of the *same* data type.
 2. The size (i.e. no. of elements) in the Array is *fixed* and cannot be changed.
+
+In Java, Arrays are Objects.
+
+Here are a few different ways you can create arrays:
+
+```java
+String[] anArrayWithFiveStrings = new int[5];  // no. in [] is the array size
+int[] smallEvenNumbers = {0, 2, 4, 6};
+```
+
+The length of an the array can be taken using the `length` property. For example:
+
+```java
+System.out.println(smallEvenNumbers.length);  // 4 
+// note that there's no '()' after 'length'!
+```
 
