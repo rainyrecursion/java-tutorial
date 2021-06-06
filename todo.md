@@ -3,8 +3,8 @@
 * Array 
 * ArrayList
 * `for`-each loop
-* String
 * Random
+* Exception Handling
 * Basic OOP:
   - static vs non-static
   - basic `extends` and `implement` 
