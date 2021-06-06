@@ -767,3 +767,38 @@ int[][] grid = { {1, 2, 3}, {-1, -2, -3, -4} };
 
 [There is a quick summary of built-in Java Array method at the bottom of this page.](https://www.tutorialspoint.com/java/java_arrays.htm)
 
+# ArrayList
+
+Now, say you wanted to change the sign of a list, like a Python list.
+
+Well, that's where ArrayList comes in!
+
+First, you need to import `java.util.ArrayList`.
+
+Here's how you create an ArrayList:
+
+```java
+ArrayList<DataType> myArrayList = new ArrayList<DataType>();
+ArrayList<DataType> myArrayList = new ArrayList<>();  // Java is smart, you can omit DataType in the constructor
+ArrayList<String> exampleAL = new ArrayList<>();
+```
+
+Note that unlike Java Arrays and Python Lists, you do not access elements in the list using `[index]`.
+
+Also, elements in an ArrayList must be an Object and **not** of primitive data types. If you want to make an ArrayList of, say, `int`s, then you need to use the wrapper class `Integer`.
+
+Here are a few basic ArrayList methods:
+
+```java
+exampleAL.add("Hello");  // adds to the end, similar to Python's append
+exampleAL.get(0);  // parameter is index number, similar to array[index]
+exampleAL.set(0, "World");  // similar to array[0] = "World"
+exampleAL.remove(0);  // removes element at index number
+exampleAL.size();   // similar to Java array.length and Python len(myList)
+
+for (String s: exampleAL) {
+    // you can use for-each loops for ArrayLists too!
+}
+```
+
+[You can see a list of all ArrayList methods here.](https://www.programiz.com/java-programming/library/arraylist)
