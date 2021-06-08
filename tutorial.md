@@ -809,7 +809,7 @@ a.printAge_nonstatic(); // the program will know that it should be printing A's 
 
 Do note that there is no output for the above two code snippets because the code will not compile in the first place.
 
-## Inheritance
+## Parent classes
 From the above code we are able to create objects of class Animal, but what if we want to specify that the pet shop has mammals and fishes, which have different attributes? We could create two separate classes:
 
 ```java
@@ -875,6 +875,147 @@ public class Fish extends Animal {
 If you look at the class definition for Animal, the attributes `name`, `age` and `counter` are now `protected` instead of `private`. While `private` means that attributes created in one file cannot be accessed directly in another file, `protected` means that attribtes created in one file can be accessed from files in the same package or child classes (`Mammal` and `Fish`) as well. If `private` was used instead, `super.name` would not work.
 
 Do note that a class can only have one parent class.
+
+Now, classes `Mammal` and `Fish` have access to the methods and attributes of class `Animal` (as long as they aren't marked with the `private` modifier. For example, we can do this:
+```java
+Mammal m = new Mammal("Something", 5, "brown");
+m.printName();
+```
+
+But what if we want to customize the function `printName()` such that the output changes depending on whether the object is a `Mammal` or a `Fish`. We can then use the keyword `abstract`.
+
+```java
+public class Animal {
+	protected String name;
+	protected int age;
+	protected static int counter;
+	
+	public Animal(String name, int age) {
+		this.name = name;
+        	this.age = age;
+		counter += 1;
+	}
+	
+	abstract public void printName(); // there is no implementation for this method specified
+}
+
+// in another file
+public class Mammal extends Animal {
+	private String furColour;
+	
+	public Mammal(String name, int age, String furColour) {
+		super(name, age);
+		this.furColour = furColour;
+	}
+	
+	@Override // this shows that this is the customised implementation of the printName function
+	public void printName() {
+		System.out.println("The mammal's name is: " + super.name);
+	}
+}
+
+// in another file
+public class Fish extends Animal {
+	private String finColour;
+	
+	public Fish(String name, int age, String finColour) {
+		super(name, age);
+		this.finColour = finColour;
+	}
+	
+	@Override
+	public void printName() {
+		System.out.println("The fish's name is: " + super.name);
+	}
+}
+```
+
+Now, mammals and fishes have different implementations of `printName()`:
+```java
+Mammal m = new Mammal("Doggy", 5, "brown);
+Fish f = new Fish("Goldfish", 3, "red");
+m.printName();
+f.printName();
+```
+Output:
+```java
+The mammal's name is Doggy
+The fish's name is Goldfish
+```
+
+As of now, we can still create an object of type `Animal`.
+```java
+Animal a = new Animal("Doggy", 3);
+```
+
+But what if we don't want users to be able to create an object of class Animal because that's too vague? And instead they must specify whether the object is a Mammal or a Fish? We can also add the keyword `abstract` to the class Animal.
+
+```java
+public abstract class Animal {
+	// insert attributes and methods here...
+}
+```
+
+Earlier we mentioned that a class can only have one parent class. But what if a class has similar attributes/functions with 2 classes? For example, what if we have a function `layEgg()` that simulates the animal laying an egg? Fishes would have access to this function, however there is a certain mammal that also should have access to this function- the platypus. The class definition for Platypus is below:
+
+```java
+public class Platypus extends Mammal {
+	public Platypus(String name, int age, String furColour) {
+		super(name, age, furColour);
+	}
+}
+```
+
+Although `Platypus` shares characteristics with both classes `Mammal` (both have attribute `furColour`) and `Fish` (both have function `layEgg()`), it cannot be a child class of both. It also should not be a child class of both, as a platypus is a mammal, not a fish. Instead of making `Fish` a parent class of `Platypus`, we should use an interface.
+
+```java
+public Interface canLayEggs {
+	public void layEgg();
+}
+```
+
+Interfaces are like abstract classes, except all methods within the interface are abstract by default. Unlike classes, you can have a child class implement multiple interfaces.
+
+```java
+public class Platypus extends Mammal implements canLayEggs {
+	// note that now that Mammal has a subclass, all its attributes should be protected instead of private
+	public Platypus(String name, int age, String furColour) {
+		super(name, age, furColour);
+	}
+	
+	@Override
+	public void layEgg() {
+		System.out.println("The platypus has laid an egg!");
+	}
+}
+
+public class Fish extends Animal implements canLayEggs {
+	private String finColour;
+	
+	public Fish(String name, int age, String finColour) {
+		super(name, age);
+		this.finColour = finColour;
+	}
+	
+	@Override
+	public void layEgg() {
+		System.out.println("The fish has laid an egg!");
+	}
+}
+```
+```java
+// in main method
+Platypus p = new Platypus("Perry", 4, "blue");
+Fish f = new Fish("Betta", 3, "purple");
+
+p.layEgg();
+f.layEgg();
+```
+Output:
+```java
+The platypus has laid an egg!
+The fish has laid an egg!
+```
 
 ## Tips and Tricks
 
