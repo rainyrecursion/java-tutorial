@@ -1145,3 +1145,13 @@ for (String s: exampleAL) {
 
 [You can see a list of all ArrayList methods here.](https://www.programiz.com/java-programming/library/arraylist)
 
+# Random Class
+
+To use the Random class, you need to import `java.util.Random`.
+
+It helps you generate (pseudo)random numbers.
+
+Refer to `RandomExample.java` for an example of how to use the various methods in the class.
+
+Refer to the [official Java documentation for `java.util.Random`](https://docs.oracle.com/javase/8/docs/api/java/util/Random.html) for full details on all methods.
+
