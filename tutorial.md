@@ -882,8 +882,6 @@ Mammal m = new Mammal("Something", 5, "brown");
 m.printName();
 ```
 
-###Abstract
-
 But what if we want to customize the function `printName()` such that the output changes depending on whether the object is a `Mammal` or a `Fish`. We can then use the keyword `abstract`.
 
 ```java
