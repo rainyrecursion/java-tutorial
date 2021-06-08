@@ -546,7 +546,7 @@ public class Animal {
         age = 1;
     }
     
-    public Animal(String name, int myAge) {
+    public Animal(String name, int age) {
         this.name = name;
         this.age = age;
 	}
@@ -567,7 +567,20 @@ Also, you can overload constructors! See above for more information about overlo
 
 Typically, constructors are `public`. 
 
-Here, the `this` keyword helps us tell Java that we want to use the class's variables, and not the local variable.
+Here, the `this` keyword helps us tell Java that we want to use the class's variables, and not the local variable. The keyword can also tell Java to use the class's constructor. For example:
+
+```java
+public class Animal {
+	public Animal(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+	
+	public Animal(Animal myAnimal) {
+		this(myAnimal.name, myAnimal.age); // this will send myAnimal's name and age to the above constructor Animal(String name, int age)
+	}
+}
+```
 
 Notice that unlike Python, there is no `self` as the first parameter of the function.
 
@@ -795,6 +808,73 @@ a.printAge_nonstatic(); // the program will know that it should be printing A's 
 ```
 
 Do note that there is no output for the above two code snippets because the code will not compile in the first place.
+
+## Inheritance
+From the above code we are able to create objects of class Animal, but what if we want to specify that the pet shop has mammals and fishes, which have different attributes? We could create two separate classes:
+
+```java
+public class Mammal {
+    private String name;
+    private int age;
+    private static int counter;
+    private String furColour;
+}
+
+public class Fish {
+    private String name;
+    private int age;
+    private static int counter;
+    private String finColour; // the only different attribute
+}
+```
+
+But this is inefficient because there are many repeated attributes (i.e. `name` and `age`). In addition, `counter` will no longer be able to count the number of animals in total. Instead we can use *inheritance*.
+
+```java
+public class Animal {
+	protected String name;
+	protected int age;
+	protected static int counter;
+	
+	public Animal(String name, int age) {
+		this.name = name;
+        	this.age = age;
+		counter += 1;
+	}
+	
+	public void printName() {
+		System.out.println(name);
+	}
+}
+
+// in a separate file
+public class Mammal extends Animal {
+	private String furColour;
+	// Mammal now has all the same attributes as Animal i.e. name, age, counter as well as furColor
+	
+	public Mammal(String name, int age, String furColour) {
+		super.name = name; // the keyword super instead of this points to the name attribute from the root class Animal
+		super.age = age;
+		super.counter += 1;
+		// Alternatively, the first 3 lines can be replaced by super(name, age) to point to the constructor in Animal
+		this.furColour = furColour;
+	}
+}
+
+// in a separate file
+public class Fish extends Animal {
+	private String finColour;
+	
+	public Fish(String name, int age, String finColour) {
+		super(name, age);
+		this.finColour = finColour;
+	}
+}
+```
+
+If you look at the class definition for Animal, the attributes `name`, `age` and `counter` are now `protected` instead of `private`. While `private` means that attributes created in one file cannot be accessed directly in another file, `protected` means that attribtes created in one file can be accessed from files in the same package or child classes (`Mammal` and `Fish`) as well. If `private` was used instead, `super.name` would not work.
+
+Do note that a class can only have one parent class.
 
 ## Tips and Tricks
 
