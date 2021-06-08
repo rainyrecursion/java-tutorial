@@ -735,11 +735,11 @@ public class Animal {
 	counter += 1; // every time an animal is created, increase the number of animals by 1
     }
     
-    public int getCounter() { // getter method for variable counter
+    public static int getCounter() { // getter method for variable counter
     	return counter;
     }
     
-    public int getAge() { // used in the next example
+    public int getAge() { // used in the next code snippet
     	return age;
     }
 }
@@ -759,6 +759,42 @@ Output:
 One animal's age is 5 while another's is 3.
 Altogether, there are 2 animals.
 ```
+
+Do note that static variables can be used in non-static methods, but non-static variables cannot be used in static methods. An example of the former is the constructor. Although the constructor is non-static and initializes the `name` and the `age` variables of animals with different values for each animal, it can still update the static variable `counter`. However, if we theoretically created a static method that used non-static variables:
+
+```java
+public class Animal {
+    private String name;
+    private int age;
+    private static int counter; // count the number of animals created
+    
+    public Animal(String name, int age) { // this is allowed!
+    	this.name = name;
+	this.age = age;
+	counter += 1; // every time an animal is created, increase the number of animals by 1
+    }
+    
+    public static void printAge_static() { // this is NOT allowed!
+    	System.out.println(age + "");
+    }
+    
+    public void printAge_nonstatic() { // this is allowed!
+    	System.out.println(age + "");
+    }
+}
+```
+
+This code would not compile because in the function `printAge_static`, the program doesn't know which copy of `age` belonging to which animal it should use. Meanwhile, for the function `printAge_nonstatic`, the version of the method called belongs to a certain Animal so it will use the variable of `age` belonging to that animal.
+
+```java
+// in main method
+Animal a = new Animal("A", 5);
+Animal b = new Animal("B", 3);
+Animal.printAge_static(); // this will not work- who's age do we print? A's or B's?
+a.printAge_nonstatic(); // the program will know that it should be printing A's age- 5
+```
+
+Do note that there is no output for the above two code snippets because the code will not compile in the first place.
 
 ## Tips and Tricks
 
