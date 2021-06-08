@@ -677,6 +677,89 @@ Thus, when we run `dogA.setAge(100);`, we are actually modifying the First Dog, 
 
 If you are wondering why we use private class variables and public getters & setters, [check out StackOverflow on this topic](https://stackoverflow.com/questions/1568091/why-use-getters-and-setters-accessors).
 
+## Static vs Non-static
+```java
+public class Animal {
+    private String name;
+    private int age;
+}
+```
+So far, we have variables to store the name and age of individual animals. But what if we want to store data that relates to all the animals in the pet shop as a whole, like the number of animals?
+
+```java
+// WRONG EXAMPLE
+public class Animal {
+    private String name;
+    private int age;
+    private int counter; // count the number of animals created
+    
+    public Animal(String name, int age) {
+    	this.name = name;
+	this.age = age;
+	counter += 1; // every time an animal is created, increase the number of animals by 1
+    }
+    
+    public int getCounter() { // getter method for variable counter
+    	return counter;
+    }
+}
+```
+If we directly add this data attribute in the same way we added name and age, each animal created will have their own version of `counter` and the value of `counter` will not be the same across all animals.
+
+```java
+// in main method
+Animal a = new Animal("A", 5);
+Animal b = new Animal("B", 3);
+System.out.println(a.getCounter() + ""); // Ideally, since 2 animals have been created, we would want counter to be 2
+```
+Output:
+```java
+1
+```
+This is because when Animal B is created, a new copy of counter (initialised to 0) belonging to Animal B is created and 1 is added to that, instead of the version of counter that belongs to Animal A (which is 1).
+
+Instead, we should use the keyword `static` to indicate to the program that this variable should be uniform across all animals. Hence, while a new copy of non-static variables (in this case `name` and `age`) is formed every time an Animal is created, only one copy of the variable `counter` will be created and be used for all Animals. The keyword `static` goes after the access modifier (`private`, `public`, etc.) and before the data type of the variable. 
+
+Besides variables, methods can also be static. Since we are making the variable `counter` static, it makes sense that the getter method for `counter` should also be static because it is accessing a static variable that is the same across all objects created from the class. The keyword `static` goes after the access modifier (`private`, `public`, etc.) and before the return type of the function.
+
+```java
+// RIGHT EXAMPLE
+public class Animal {
+    private String name;
+    private int age;
+    private static int counter; // count the number of animals created
+    
+    public Animal(String name, int age) {
+    	this.name = name;
+	this.age = age;
+	counter += 1; // every time an animal is created, increase the number of animals by 1
+    }
+    
+    public int getCounter() { // getter method for variable counter
+    	return counter;
+    }
+    
+    public int getAge() { // used in the next example
+    	return age;
+    }
+}
+```
+
+Usually, for non-static variables and functions, we use them in the format `(object name).(variable or method name)`. However, since static variables and functions belong to all objects from that class as a whole instead of an individual object, we use them in the format `(Class name).(variable or method name)`. For example:
+
+```java
+// in main method
+Animal a = new Animal("A", 5);
+Animal b = new Animal("B", 3);
+System.out.println("One animal's age is " + a.getAge() + " while another's is " + b.getAge());
+System.out.println("Altogther, there are " + Animal.getCounter() + " animals.");
+```
+Output:
+```
+One animal's age is 5 while another's is 3.
+Altogether, there are 2 animals.
+```
+
 ## Tips and Tricks
 
 Most IDEs can help to generate constructors, getters, and setters for you. [Here are the instructions on how to do this on IntelliJ IDEA](https://www.jetbrains.com/help/idea/generating-code.html). It's similar in Android Studio.
