@@ -872,7 +872,7 @@ public class Fish extends Animal {
 }
 ```
 
-If you look at the class definition for Animal, the attributes `name`, `age` and `counter` are now `protected` instead of `private`. While `private` means that attributes created in one file cannot be accessed directly in another file, `protected` means that attribtes created in one file can be accessed from files in the same package or child classes (`Mammal` and `Fish`) as well. If `private` was used instead, `super.name` would not work.
+If you look at the class definition for Animal, the attributes `name`, `age` and `counter` are now `protected` instead of `private`. While `private` means that attributes created in one file cannot be accessed directly in another file, `protected` means that attributes created in one file can be accessed from files in the same package or child classes (`Mammal` and `Fish`) as well. If `private` was used instead, `super.name` would not work.
 
 Do note that a class can only have one parent class.
 
@@ -938,7 +938,7 @@ m.printName();
 f.printName();
 ```
 Output:
-```java
+```
 The mammal's name is Doggy
 The fish's name is Goldfish
 ```
@@ -956,7 +956,7 @@ public abstract class Animal {
 }
 ```
 
-##Interfaces
+## Interfaces
 
 Earlier we mentioned that a class can only have one parent class. But what if a class has similar attributes/functions with 2 classes? For example, what if we have a function `layEgg()` that simulates the animal laying an egg? Fishes would have access to this function, however there is a certain mammal that also should have access to this function- the platypus. The class definition for Platypus is below:
 
@@ -1144,3 +1144,4 @@ for (String s: exampleAL) {
 ```
 
 [You can see a list of all ArrayList methods here.](https://www.programiz.com/java-programming/library/arraylist)
+
