@@ -882,6 +882,8 @@ Mammal m = new Mammal("Something", 5, "brown");
 m.printName();
 ```
 
+###Abstract
+
 But what if we want to customize the function `printName()` such that the output changes depending on whether the object is a `Mammal` or a `Fish`. We can then use the keyword `abstract`.
 
 ```java
@@ -955,6 +957,8 @@ public abstract class Animal {
 	// insert attributes and methods here...
 }
 ```
+
+##Interfaces
 
 Earlier we mentioned that a class can only have one parent class. But what if a class has similar attributes/functions with 2 classes? For example, what if we have a function `layEgg()` that simulates the animal laying an egg? Fishes would have access to this function, however there is a certain mammal that also should have access to this function- the platypus. The class definition for Platypus is below:
 
