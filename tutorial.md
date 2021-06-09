@@ -1198,3 +1198,65 @@ It helps you generate (pseudo)random numbers.
 Refer to `RandomExample.java` for an example of how to use the various methods in the class.
 
 Refer to the [official Java documentation for `java.util.Random`](https://docs.oracle.com/javase/8/docs/api/java/util/Random.html) for full details on all methods
+
+# Comparable and Comparator
+
+## Comparable Interface
+
+Suppose I want to be able to easily sort my Animal objects in order of ascending age. We can implement the Comparable interface.
+
+Then, we need to override the method `public int compareTo(T obj2)`. We return:
+
+* A *positive* integer, if the current object > `obj2`
+* A *negative* integer, if the current object < `obj2`
+* Zero, if they are equal
+
+```java
+public class Animal implements Comparable<Animal> {
+	private int age;
+    private String name;
+    
+    @Override
+    public int compareTo(Animal a2) {
+        return age - a2.age;
+    }
+}
+```
+
+Note that both `String` and Wrapper Classes (e.g. `Integer`) already have `compareTo` defined, so you can do something like `stringVar1.compareTo(stringVar2)`.
+
+## Comparator interface
+
+Now, suppose you want to sort Animals by age, but your good friend wants to sort Animals by name. 
+
+Instead of creating two different Animal classes (which is going to result in a lot of trouble), you can just make use of the Comparator interface!
+
+```java
+public class Animal {
+	private int age;
+    private String name;
+    
+    public class AgeComparator implements Comparator<Animal> {
+        @Override
+        public int compare(Animal a, Animal b) {
+            return a.age - b.age;
+        }
+    }
+    
+    public class NameComparator implements Comparator<Animal> {
+        @Override
+        public int compare(Animal a, Animal b) {
+            return a.name.compareTo(b.name);
+        }
+    }
+}
+```
+
+Note: You can define Comparators in a different .java file too!
+
+## How to use the compare stuff
+
+`Collections.sort()` can sort Lists (including ArrayLists, which are a subclass of `List`).
+
+`Arrays.sort()` can sort Arrays *(Note: If applicable, you need to import java.util.Collections and java.util.Arrays)*
+
