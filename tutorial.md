@@ -403,6 +403,16 @@ After the statements in the block are executed once, the `<end-condition>` is ch
 
 If it is `false`, then `<step> ` is executed before the statements in the block are run again.
 
+## `break` and `continue`
+
+Java's `break` and `continue` statements work the same as those in Python.
+
+`break` means Java will leave the loop completely.
+
+`continue` means Java will stop the current iteration of the loop and move on to the next iteration.
+
+Remember to include a semicolon after `break` and `continue`!
+
 # Methods
 
 A Java method is basically a Python function. One key difference is that you *must* state the return data type of the function.
