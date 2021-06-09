@@ -501,8 +501,6 @@ public static double half(int a) {  // same parameter, but different return type
 }
 ```
 
-
-
 # Object Oriented Programming
 
 ## Introduction
@@ -1019,6 +1017,42 @@ The platypus has laid an egg!
 The fish has laid an egg!
 ```
 
+## `toString()` and `equals()`
+
+By default, *all* Java classes (both the ones you make, the ones other people make, stuff you've already learnt like `String`, and the ones you import) have `java.lang.Object` as its parent class. 
+
+If you try to print an Object (e.g. an Animal Object from earlier), you'll get something really weird like this:
+
+```
+Animal@7ba4f24f
+```
+
+Now, that's... not very useful. You can make it print something a bit more useful by overriding the Object `toString()` method in the Animal class:
+
+```java
+@Override
+public String toString() {
+    return name + " is " + age + " years old!"
+}
+```
+
+When comparing Strings earlier, you realised that `==` doesn't work that well, and you need to use `.equals()`.
+
+However, you need to tell Java what to do when you run the `.equals()` method. An example is shown below.
+
+```java
+@Override
+public boolean equals(Object obj) {  
+    // note that input is of type Object, not Animal
+    if (obj instanceof Animal) {  // checks if obj is of type Animal
+        Animal aObj = (Animal) obj;  // casts o to type animal
+        return age = aObj.age && name.equals(aObj.name);
+        // if you don't cast, obj.age will return an error!
+    }
+    return false;  // obj is not of type Animal
+}
+```
+
 ## Tips and Tricks
 
 Most IDEs can help to generate constructors, getters, and setters for you. [Here are the instructions on how to do this on IntelliJ IDEA](https://www.jetbrains.com/help/idea/generating-code.html). It's similar in Android Studio.
@@ -1153,5 +1187,4 @@ It helps you generate (pseudo)random numbers.
 
 Refer to `RandomExample.java` for an example of how to use the various methods in the class.
 
-Refer to the [official Java documentation for `java.util.Random`](https://docs.oracle.com/javase/8/docs/api/java/util/Random.html) for full details on all methods.
-
+Refer to the [official Java documentation for `java.util.Random`](https://docs.oracle.com/javase/8/docs/api/java/util/Random.html) for full details on all methods
